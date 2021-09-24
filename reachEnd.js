@@ -1,9 +1,10 @@
 
-function reachTheEnd({ grid, maxTime }) {
+function reachTheEnd({ grid, maxTime }) { // 3 4
     let rowLen = grid.length,
         colLen = grid[0].length
 
     let paths = new Array(rowLen)
+    let moves = 0
 
     for (let i = 0; i < rowLen; i++) {
         paths[i] = new Array(colLen)
@@ -18,7 +19,10 @@ function reachTheEnd({ grid, maxTime }) {
     // Initializing first column of the 2D matrix
     for (let i = 1; i < rowLen; i++) {
         // If not obstacle
-        if (grid[i][0] == '.') paths[i][0] = paths[i - 1][0]
+        if (grid[i][0] == '.') {
+            paths[i][0] = paths[i - 1][0]
+            moves++
+        }
     }
 
     // Initializing first row of the 2D matrix
@@ -26,6 +30,7 @@ function reachTheEnd({ grid, maxTime }) {
         // If not obstacle
         if (grid[0][j] == '.') {
             paths[0][j] = paths[0][j - 1]
+            moves++
         }
     }
 
@@ -34,13 +39,14 @@ function reachTheEnd({ grid, maxTime }) {
             // If current cell is not obstacle
             if (grid[i][j] == '.') {
                 paths[i][j] = paths[i - 1][j] + paths[i][j - 1]
+                moves++
             }
         }
     }
 
     // Returning the corner value of the matrix
     let end = paths[rowLen - 1][paths.length-1]
-    let canReach = Boolean(end && end <= maxTime)
+    let canReach = Boolean(end && moves <= maxTime)
 
     return canReach ? "Yes" : 'No'
 }
@@ -49,6 +55,12 @@ function reachTheEnd({ grid, maxTime }) {
     . . # #
     # . # #
     # . . .
+    [ 1, 1, 0, 0 ]
+    [ 0, 1, 0, 0 ]
+    [ 0, 1, 1, 1 ]
+
+    [ 1, 1 ]
+    [ 1, 2 ]
 */
 
 const testCases = [
