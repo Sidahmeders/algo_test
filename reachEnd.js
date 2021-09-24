@@ -10,7 +10,6 @@ function reachTheEnd({ grid, maxTime }) {
         paths[i] = new Array(colLen)
         for (let j = 0; j < colLen; j++) {
             paths[i][j] = 0
-            console.log(i, j)
         }
     }
 
