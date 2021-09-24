@@ -1,5 +1,5 @@
 
-function reachTheEnd({ grid, maxTime }) { // 3 4
+function reachTheEnd({ grid, maxTime }) {
     let rowLen = grid.length,
         colLen = grid[0].length
 
@@ -10,6 +10,7 @@ function reachTheEnd({ grid, maxTime }) { // 3 4
         paths[i] = new Array(colLen)
         for (let j = 0; j < colLen; j++) {
             paths[i][j] = 0
+            console.log(i, j)
         }
     }
 
@@ -22,6 +23,7 @@ function reachTheEnd({ grid, maxTime }) { // 3 4
         if (grid[i][0] == '.') {
             paths[i][0] = paths[i - 1][0]
             moves++
+            console.log(i)
         }
     }
 
@@ -31,6 +33,7 @@ function reachTheEnd({ grid, maxTime }) { // 3 4
         if (grid[0][j] == '.') {
             paths[0][j] = paths[0][j - 1]
             moves++
+            console.log(j)
         }
     }
 
@@ -40,11 +43,11 @@ function reachTheEnd({ grid, maxTime }) { // 3 4
             if (grid[i][j] == '.') {
                 paths[i][j] = paths[i - 1][j] + paths[i][j - 1]
                 moves++
+                console.log(i, j)
             }
         }
     }
 
-    // Returning the corner value of the matrix
     let end = paths[rowLen - 1][paths.length-1]
     let canReach = Boolean(end && moves <= maxTime)
 
@@ -52,15 +55,8 @@ function reachTheEnd({ grid, maxTime }) { // 3 4
 }
 
 /*
-    . . # #
-    # . # #
-    # . . .
-    [ 1, 1, 0, 0 ]
-    [ 0, 1, 0, 0 ]
-    [ 0, 1, 1, 1 ]
-
-    [ 1, 1 ]
-    [ 1, 2 ]
+    TIME_COMPELXITY: O(n^2)
+    SPACE_COMLEXITY: O(n * m) where n = grid[row] && m = grid[column]
 */
 
 const testCases = [

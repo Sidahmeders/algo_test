@@ -27,7 +27,7 @@ function carParkingRoof({ k, cars }) {
 }
 
 /*
-    TIME_COMPELXITY: O(n^2 + m) where m = n = cars.length
+    TIME_COMPELXITY: O(nlog(n) + m) where m = n = cars.length
     SPACE_COMLEXITY: O(n) where n = cars.length
 */
 

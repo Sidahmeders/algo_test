@@ -29,7 +29,7 @@ function numPlayers({ k, scores }) {
 }
 
 /*
-TIME_COMPELXITY:  O(n^2 + m) where m = n = scores.length
+TIME_COMPELXITY: O(nlog(n)+ m) where m = n = scores.length
 SPACE_COMLEXITY: O(n) where n = scores.length
 */
 
