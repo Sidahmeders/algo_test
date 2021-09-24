@@ -23,7 +23,6 @@ function reachTheEnd({ grid, maxTime }) {
         if (grid[i][0] == '.') {
             paths[i][0] = paths[i - 1][0]
             moves++
-            console.log(i)
         }
     }
 
@@ -33,7 +32,6 @@ function reachTheEnd({ grid, maxTime }) {
         if (grid[0][j] == '.') {
             paths[0][j] = paths[0][j - 1]
             moves++
-            console.log(j)
         }
     }
 
@@ -43,7 +41,6 @@ function reachTheEnd({ grid, maxTime }) {
             if (grid[i][j] == '.') {
                 paths[i][j] = paths[i - 1][j] + paths[i][j - 1]
                 moves++
-                console.log(i, j)
             }
         }
     }
