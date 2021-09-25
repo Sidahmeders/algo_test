@@ -51,7 +51,7 @@ function reachTheEnd({ grid, maxTime }) {
 }
 
 /*
-    TIME_COMPELXITY: O(n^2)
+    TIME_COMPELXITY: O(n * m) where n = grid[row] && m = grid[column]
     SPACE_COMLEXITY: O(n * m) where n = grid[row] && m = grid[column]
 */
 
